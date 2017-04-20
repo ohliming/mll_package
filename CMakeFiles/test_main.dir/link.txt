@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -O2 -DDLIB_JPEG_SUPPORT -Wall -Wextra -O3 -DNDEBUG    CMakeFiles/test_main.dir/test_main.cpp.o  -o bin/test_main  -L/home/liming/Documents/mll_package/libs -rdynamic libs/liblibmll.so -ldlib -Wl,-rpath,/home/liming/Documents/mll_package/libs 

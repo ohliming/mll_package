@@ -1,0 +1,2 @@
+/usr/bin/ar cr libcpp11_test.a  CMakeFiles/cpp11_test.dir/cpp11_test.cpp.o
+/usr/bin/ranlib libcpp11_test.a

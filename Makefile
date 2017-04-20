@@ -38,22 +38,19 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/home/liming/mll_package
+CMAKE_SOURCE_DIR = /home/liming/Documents/mll_package
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/home/liming/mll_package
+CMAKE_BINARY_DIR = /home/liming/Documents/mll_package
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -72,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/liming/mll_package/CMakeFiles /data/home/liming/mll_package/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liming/Documents/mll_package/CMakeFiles /home/liming/Documents/mll_package/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/liming/mll_package/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liming/Documents/mll_package/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -102,30 +99,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mll
+# Target rules for targets named libmll
 
 # Build rule for target.
-mll: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mll
-.PHONY : mll
+libmll: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libmll
+.PHONY : libmll
 
 # fast build rule for target.
-mll/fast:
-	$(MAKE) -f CMakeFiles/mll.dir/build.make CMakeFiles/mll.dir/build
-.PHONY : mll/fast
+libmll/fast:
+	$(MAKE) -f CMakeFiles/libmll.dir/build.make CMakeFiles/libmll.dir/build
+.PHONY : libmll/fast
 
 #=============================================================================
-# Target rules for targets named mll_static
+# Target rules for targets named mllstatic
 
 # Build rule for target.
-mll_static: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mll_static
-.PHONY : mll_static
+mllstatic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mllstatic
+.PHONY : mllstatic
 
 # fast build rule for target.
-mll_static/fast:
-	$(MAKE) -f CMakeFiles/mll_static.dir/build.make CMakeFiles/mll_static.dir/build
-.PHONY : mll_static/fast
+mllstatic/fast:
+	$(MAKE) -f CMakeFiles/mllstatic.dir/build.make CMakeFiles/mllstatic.dir/build
+.PHONY : mllstatic/fast
 
 #=============================================================================
 # Target rules for targets named test_main
@@ -145,8 +142,8 @@ src/mll.o: src/mll.cpp.o
 
 # target to build an object file
 src/mll.cpp.o:
-	$(MAKE) -f CMakeFiles/mll.dir/build.make CMakeFiles/mll.dir/src/mll.cpp.o
-	$(MAKE) -f CMakeFiles/mll_static.dir/build.make CMakeFiles/mll_static.dir/src/mll.cpp.o
+	$(MAKE) -f CMakeFiles/libmll.dir/build.make CMakeFiles/libmll.dir/src/mll.cpp.o
+	$(MAKE) -f CMakeFiles/mllstatic.dir/build.make CMakeFiles/mllstatic.dir/src/mll.cpp.o
 .PHONY : src/mll.cpp.o
 
 src/mll.i: src/mll.cpp.i
@@ -154,8 +151,8 @@ src/mll.i: src/mll.cpp.i
 
 # target to preprocess a source file
 src/mll.cpp.i:
-	$(MAKE) -f CMakeFiles/mll.dir/build.make CMakeFiles/mll.dir/src/mll.cpp.i
-	$(MAKE) -f CMakeFiles/mll_static.dir/build.make CMakeFiles/mll_static.dir/src/mll.cpp.i
+	$(MAKE) -f CMakeFiles/libmll.dir/build.make CMakeFiles/libmll.dir/src/mll.cpp.i
+	$(MAKE) -f CMakeFiles/mllstatic.dir/build.make CMakeFiles/mllstatic.dir/src/mll.cpp.i
 .PHONY : src/mll.cpp.i
 
 src/mll.s: src/mll.cpp.s
@@ -163,33 +160,33 @@ src/mll.s: src/mll.cpp.s
 
 # target to generate assembly for a file
 src/mll.cpp.s:
-	$(MAKE) -f CMakeFiles/mll.dir/build.make CMakeFiles/mll.dir/src/mll.cpp.s
-	$(MAKE) -f CMakeFiles/mll_static.dir/build.make CMakeFiles/mll_static.dir/src/mll.cpp.s
+	$(MAKE) -f CMakeFiles/libmll.dir/build.make CMakeFiles/libmll.dir/src/mll.cpp.s
+	$(MAKE) -f CMakeFiles/mllstatic.dir/build.make CMakeFiles/mllstatic.dir/src/mll.cpp.s
 .PHONY : src/mll.cpp.s
 
-test_main.o: test_main.c.o
+test_main.o: test_main.cpp.o
 .PHONY : test_main.o
 
 # target to build an object file
-test_main.c.o:
-	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test_main.c.o
-.PHONY : test_main.c.o
+test_main.cpp.o:
+	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test_main.cpp.o
+.PHONY : test_main.cpp.o
 
-test_main.i: test_main.c.i
+test_main.i: test_main.cpp.i
 .PHONY : test_main.i
 
 # target to preprocess a source file
-test_main.c.i:
-	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test_main.c.i
-.PHONY : test_main.c.i
+test_main.cpp.i:
+	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test_main.cpp.i
+.PHONY : test_main.cpp.i
 
-test_main.s: test_main.c.s
+test_main.s: test_main.cpp.s
 .PHONY : test_main.s
 
 # target to generate assembly for a file
-test_main.c.s:
-	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test_main.c.s
-.PHONY : test_main.c.s
+test_main.cpp.s:
+	$(MAKE) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test_main.cpp.s
+.PHONY : test_main.cpp.s
 
 # Help Target
 help:
@@ -198,8 +195,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... mll"
-	@echo "... mll_static"
+	@echo "... libmll"
+	@echo "... mllstatic"
 	@echo "... rebuild_cache"
 	@echo "... test_main"
 	@echo "... src/mll.o"

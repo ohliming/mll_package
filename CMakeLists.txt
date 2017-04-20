@@ -1,10 +1,17 @@
-PROJECT (mll)
+cmake_minimum_required(VERSION 2.8.12)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(mll)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -DDLIB_JPEG_SUPPORT")
+IF(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything")
+ELSEIF(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+ENDIF()
 
 # include directories
 INCLUDE_DIRECTORIES(
-  ${PROJECT_SOURCE_DIR}/include
+  ${PROJECT_SOURCE_DIR}/include 
 )
 
 # lib directories
@@ -17,16 +24,15 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/libs)
 
 
 # CMakeLists for src directory
-SET(MLL_SRCS
-  ${PROJECT_BINARY_DIR}/src/mll.cpp
-)
+SET(MLL_SRCS ${PROJECT_BINARY_DIR}/src/mll.cpp)
 
 # shared library
-ADD_LIBRARY(mll SHARED ${MLL_SRCS})
+ADD_LIBRARY(libmll SHARED ${MLL_SRCS})
 
 # static library
-ADD_LIBRARY(mll_static STATIC ${MLL_SRCS})
+ADD_LIBRARY(mllstatic STATIC ${MLL_SRCS})
 
-
-SET(TEST_MAIN test_main.c)
+SET(TEST_MAIN test_main.cpp)
 ADD_EXECUTABLE(test_main ${TEST_MAIN})
+TARGET_LINK_LIBRARIES(test_main libmll)
+TARGET_LINK_LIBRARIES(test_main dlib)  
