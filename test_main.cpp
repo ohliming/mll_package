@@ -12,8 +12,8 @@ using namespace std;
 int main()
 {
     std::vector<perspective_window::overlay_dot> points;
-    
     dlib::rand rnd;
+
     for (double i = 0; i < 20; i+=0.001)
     {
         // Get a point on a spiral
