@@ -1,2 +1,0 @@
-/usr/bin/ar cr libs/libmllstatic.a  CMakeFiles/mllstatic.dir/src/mll.cpp.o
-/usr/bin/ranlib libs/libmllstatic.a

@@ -8,9 +8,9 @@
 using namespace dlib;
 using namespace std;
 
-
 int main()
 {
+    Mll mll;
     std::vector<perspective_window::overlay_dot> points;
     dlib::rand rnd;
 

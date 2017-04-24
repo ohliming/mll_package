@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC  -std=c++11 -O2 -DDLIB_JPEG_SUPPORT -Wall -Wextra -O3 -DNDEBUG   -shared -Wl,-soname,liblibmll.so -o libs/liblibmll.so CMakeFiles/libmll.dir/src/mll.cpp.o  -L/home/liming/Documents/mll_package/libs 
