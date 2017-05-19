@@ -1,9 +1,8 @@
-#include <stdio.h>
+#include <iostream>
 
-class mll
+class Mll
 {
 public:
-    mll();
-    ~mll();
-    
+    Mll();
+    ~Mll();
 };

@@ -3,8 +3,12 @@
 /* 构造函数初始化 
  *
  * */
-mll::mll()
-{
 
+Mll::Mll()
+{
+  std::cout<<"this is Mll!"<<std::endl;
+}
+
+Mll::~Mll() {
 }
 
